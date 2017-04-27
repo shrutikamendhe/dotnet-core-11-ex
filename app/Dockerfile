@@ -23,7 +23,7 @@ ENV ASPNETCORE_URLS=http://*:8080
 
 RUN ["dotnet", "restore"]
 
-RUN chown +x ./s2i/run
+RUN chmod +x ./s2i/run
 
 ENTRYPOINT sleep 500000 | ./s2i/run
 
