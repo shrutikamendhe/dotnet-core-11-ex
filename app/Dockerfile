@@ -8,7 +8,8 @@ RUN ["dotnet", "build"]
 EXPOSE 8080/tcp
 ENV ASPNETCORE_URLS http://*:8080
  
-ENTRYPOINT ["dotnet", "run"]
+#ENTRYPOINT ["dotnet", "run"]
+ENTRYPOINT ["./.s2i/run"]
 
 #FROM microsoft/dotnet:1.1-sdk
 #
