@@ -8,7 +8,6 @@ ENV LANG=C.UTF-8 \
     PATH=/opt/app-root/src/.local/bin:/opt/app-root/src/bin:/opt/app-root/bin:/opt/app-root/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     DOTNET_PUBLISH_PATH=/opt/app-root/publish 
 
-
 RUN mkdir -p /opt/app-root/src /opt/app-root/publish && \
     useradd -u 1001 -r -g 0 -d /opt/app-root/src -s /sbin/nologin \
       -c "Default Application User" default && \
@@ -24,7 +23,7 @@ ENV ASPNETCORE_URLS=http://*:8080
 
 RUN ["dotnet", "restore"]
 
-ENTRYPOINT sleep 500000 | ./.s2i/run
+ENTRYPOINT sleep 500000 | ./s2i/run
 
 #FROM microsoft/dotnet:1.1-sdk
 #COPY . /app
