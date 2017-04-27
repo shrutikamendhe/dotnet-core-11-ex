@@ -10,9 +10,10 @@ ENV LANG=C.UTF-8 \
     DOTNET_PUBLISH_PATH=/opt/app-root/publish 
 
 RUN mkdir -p /opt/app-root/src /opt/app-root/publish && \
-    useradd -u 1001 -r -g 0 -d /opt/app-root/src -s /sbin/nologin \
+    useradd -u 1000100000 -r -g 0 -d /opt/app-root/src -s /sbin/nologin \
       -c "Default Application User" default && \
-    chown -R 1001:0 /opt/app-root
+    chown -R 1000100000:0 /opt/app-root
+
 
 WORKDIR /opt/app-root/src
 
@@ -20,11 +21,17 @@ COPY . .
 
 RUN chmod +x ./s2i/run
 
-USER 1001
+#USER 1000100000
 
 ENV ASPNETCORE_URLS=http://*:8080
 
 RUN ["dotnet", "restore"]
+
+RUN ["dotnet", "publish"]
+
+USER 1000100000
+
+#ENTRYPOINT sleep 500000 | dotnet "/app/bin/Debug/netcoreapp1.1/dotnet-core-11-ex.dll"
 
 ENTRYPOINT sleep 500000 | ./s2i/run
 
