@@ -6,7 +6,7 @@ EXPOSE 8080
 
 COPY . .
 
-RUN dotnet restore
+RUN dotnet restore & dotnet publish
 
 #ENTRYPOINT ["./.s2i/run"]
 
