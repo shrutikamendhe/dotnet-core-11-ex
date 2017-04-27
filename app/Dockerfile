@@ -8,4 +8,6 @@ COPY . .
 
 RUN dotnet restore
 
-ENTRYPOINT ["./.s2i/run"]
+#ENTRYPOINT ["./.s2i/run"]
+
+ENTRYPOINT sleep 5000 | dotnet run -f netcoreapp1.1
