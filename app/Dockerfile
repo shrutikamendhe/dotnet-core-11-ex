@@ -8,4 +8,4 @@ COPY . .
 
 RUN dotnet restore
 
-ENTRYPOINT ["sleep", "500000000"]
+ENTRYPOINT ["./.s2i/run"]

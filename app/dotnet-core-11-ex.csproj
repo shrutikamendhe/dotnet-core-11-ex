@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include=".s2i\bin\assemble" />
     <Content Include=".s2i\bin\run" />
     <Content Include=".s2i\environment" />
   </ItemGroup>
