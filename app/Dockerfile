@@ -1,4 +1,5 @@
 FROM microsoft/dotnet:1.1-sdk
+
 EXPOSE 8080
 
 ENV DOTNET_CORE_VERSION=1.1
@@ -15,15 +16,15 @@ RUN mkdir -p /opt/app-root/src /opt/app-root/publish && \
 
 WORKDIR /opt/app-root/src
 
-USER 1001
-
 COPY . .
+
+RUN chmod +x ./s2i/run
+
+USER 1001
 
 ENV ASPNETCORE_URLS=http://*:8080
 
 RUN ["dotnet", "restore"]
-
-RUN chmod +x ./s2i/run
 
 ENTRYPOINT sleep 500000 | ./s2i/run
 
