@@ -11,7 +11,8 @@ ENV ASPNETCORE_URLS http://*:8080
 USER 0
 
 #ENTRYPOINT ["dotnet", "run"]
-ENTRYPOINT ["./.s2i/run"]
+#ENTRYPOINT ["./.s2i/run"]
+ENTRYPOINT sleep 50000 | ./.s2i/run
 
 #FROM microsoft/dotnet:1.1-sdk
 #
