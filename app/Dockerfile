@@ -23,6 +23,8 @@ ENV ASPNETCORE_URLS=http://*:8080
 
 RUN ["dotnet", "restore"]
 
+RUN chown +x ./s2i/run
+
 ENTRYPOINT sleep 500000 | ./s2i/run
 
 #FROM microsoft/dotnet:1.1-sdk
