@@ -1,5 +1,9 @@
 FROM microsoft/dotnet:1.1-sdk
 
-RUN cd /usr
+WORKDIR /app
+
+COPY . .
 
 RUN ls
+
+ENTRYPOINT ["sleep", "500000000"]
