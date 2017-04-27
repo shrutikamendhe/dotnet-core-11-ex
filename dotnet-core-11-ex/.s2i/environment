@@ -1,0 +1,2 @@
+﻿DOTNET_NPM_TOOLS=bower gulp
+DOTNET_PUBLISH=true
